@@ -1,0 +1,42 @@
+GET : 
+http://localhost:8080/api/accounts/balance
+Header : 
+Content-Type:	application/json
+Response : 
+{
+"timestamp": "2019-12-05T03:48:12.503+0000",
+"status": 401,
+"error": "Unauthorized",
+"message": "Full authentication is required to access this resource",
+"path": "/api/accounts/balance"
+}
+
+
+=========================================================================
+http://localhost:8080/api/auth/token
+POST
+{"usernameOrEmail" : "dinesh.lohia", "password":"mycompany"}
+Header : 
+Content-Type:	application/json
+
+Response :
+{
+"accessToken": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkaW5lc2gubG9oaWEiLCJpYXQiOjE1NzU1MTc5NzQsImV4cCI6MTU3NTUxODI3NH0.WVsCkONfjFTc6TyiYo6BmW10b5p_ohCnzaJtWKiTF6VXUZ6W7zzRcFjS1rjn1GinN1m1m42rGoRtMdLnKDJTZg",
+"tokenType": "Bearer"
+}
+
+==========================================================================
+GET : 
+http://localhost:8080/api/accounts/balance
+Header : 
+Content-Type:	application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkaW5lc2gubG9oaWEiLCJpYXQiOjE1NzU1MTc5NzQsImV4cCI6MTU3NTUxODI3NH0.WVsCkONfjFTc6TyiYo6BmW10b5p_ohCnzaJtWKiTF6VXUZ6W7zzRcFjS1rjn1GinN1m1m42rGoRtMdLnKDJTZg
+
+Response
+{
+"ledBalance": 10000
+}
+
+============================================================================
+
+refresh needs to implemented.
